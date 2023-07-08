@@ -1,24 +1,23 @@
-import logo from './logo.svg';
+import NavBar from './component/NavBar';
+import BubleSort from './component/BubleSort';
+import Home from './component/Home';
+import SelectionSort from './component/SelectionSort';
+import InsertionSort from './component/InsertionSort';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import { Route, Routes} from 'react-router-dom'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path='/' element={<NavBar/>}>
+          <Route path='bubleSort' element={<BubleSort/>} />
+          <Route path='insertionSort' element={<InsertionSort/>} />
+          <Route path='selectionSort' element={<SelectionSort/>} />
+          <Route path='' element={<Home/>} />
+          <Route path='*' element={<div>Missing something</div>}/>
+        </Route>
+    </Routes>
   );
 }
 
